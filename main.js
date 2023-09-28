@@ -6,9 +6,18 @@ formulario.onsubmit=(e)=>{
 }
 
 agregar.addEventListener("click",()=>{
-    if (tareas.innerHTML === ""){
-        console.log("hola")
+    if (tareas.value === ""){
+        setTimeout(() => {
+            parrafo2.remove()
+        }, 2000);
+        let parrafo2=document.createElement("p")
+        parrafo2.style.textAlign="center"
+        parrafo2.style.color="tomato"
+        parrafo2.textContent="Agregue una tarea"
+        formulario.appendChild(parrafo2)
+        return
     }
+
     let div2 = document.createElement("div")
     div2.classList.add("div3")
     
@@ -39,14 +48,14 @@ agregar.addEventListener("click",()=>{
     tareas.value=""
 
     eliminar.addEventListener("click",(e)=>{
-        eliminados(e,div2)
+        eliminados(div2)
     })
     editar.addEventListener("click",()=>{
         edit(parrafo)
     })
 })
 
-function eliminados(e,div){
+function eliminados(div){
     div.remove()
 }
 
@@ -64,10 +73,14 @@ function edit(parrafo){
     let agregar = document.createElement("button")
     agregar.classList.add("bi-plus")
 
-
     modal.appendChild(input)
     modal.appendChild(agregar)
     opacidad.appendChild(modal)
     document.body.appendChild(opacidad)
+
+    agregar.addEventListener("click",()=>{
+        parrafo.textContent=input.value
+        opacidad.remove()
+    })
 }
 

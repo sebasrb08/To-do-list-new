@@ -50,6 +50,7 @@ body{
     width: 90%;
     margin: 0;
     margin-left: 1em;
+    overflow: scroll;
 }
 .bi-trash,.bi-pencil{
     border: none;
@@ -75,4 +76,18 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: 25px;
+}
+.modales2 button{
+    width: 1.5em;
+    border: none;
+    color: white;
+    background-color: black;
+    margin-left: 0.5em;
+    border-radius: 6px;
+}
+@media (max-width:800px){
+    .container{
+        width: 80%;
+    }
 }
